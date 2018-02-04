@@ -27,6 +27,7 @@ ENV SMTP_PORT=25 \
 
 # Install dependencies
 RUN apk --no-cache add \
+      curl \
       jq \
       ssmtp \
       transmission-daemon=$TRANSMISSION_VERSION
@@ -55,4 +56,8 @@ VOLUME ["/config", "/downloads", "/watch"]
 WORKDIR /downloads
 
 USER transmission:transmission
+
+HEALTHCHECK --interval=5s --timeout=3s --retries=3 \
+    CMD curl --fail http://localhost:9091 || exit 1
+
 CMD ["/start.sh"]
