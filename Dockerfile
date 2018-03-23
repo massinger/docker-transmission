@@ -61,7 +61,7 @@ WORKDIR /downloads
 RUN wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control.sh
 RUN sudo bash install-tr-control.sh
 
-USER transmission:transmission
+USER 1002:1002
 
 HEALTHCHECK --interval=5s --timeout=3s --retries=3 \
     CMD curl --silent --fail http://localhost:9091 || exit 1
