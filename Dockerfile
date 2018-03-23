@@ -3,7 +3,7 @@ FROM alpine:3.7
 ARG TRANSMISSION_VERSION=2.93-r0
 ARG IMAGE_VERSION=1.0
 ARG BUILD_DATE=20180323
-ARG VCS_REF=git rev-parse --short HEAD
+ARG VCS_REF=`git rev-parse --short HEAD`
 
 LABEL maintainer="Pierre GINDRAUD <pgindraud@gmail.com>" \
       org.label-schema.build-date="${BUILD_DATE}" \
