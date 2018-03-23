@@ -29,6 +29,7 @@ RUN apk --no-cache add \
       curl \
       jq \
       ssmtp \
+      wget \
       transmission-daemon=$TRANSMISSION_VERSION
 
 # Create the working filetree
@@ -56,6 +57,10 @@ COPY root/ /
 EXPOSE 9091/tcp 51413
 VOLUME ["/config", "/downloads", "/watch"]
 WORKDIR /downloads
+
+RUN wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control.sh --no-check-certificate
+RUN chmod +x install-tr-control.sh
+RUN sh install-tr-control.sh
 
 
 HEALTHCHECK --interval=5s --timeout=3s --retries=3 \
