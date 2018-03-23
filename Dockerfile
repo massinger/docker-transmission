@@ -27,6 +27,7 @@ ENV SMTP_PORT=25 \
 
 # Install dependencies
 RUN apk --no-cache add \
+      bash \
       curl \
       jq \
       ssmtp \
