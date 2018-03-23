@@ -58,8 +58,6 @@ VOLUME ["/config", "/downloads", "/watch"]
 WORKDIR /downloads
 
 
-USER 1002:1002
-
 HEALTHCHECK --interval=5s --timeout=3s --retries=3 \
     CMD curl --silent --fail http://localhost:9091 || exit 1
 
