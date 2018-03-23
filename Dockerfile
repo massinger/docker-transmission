@@ -58,9 +58,7 @@ EXPOSE 9091/tcp 51413
 VOLUME ["/config", "/downloads", "/watch"]
 WORKDIR /downloads
 
-RUN wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control.sh --no-check-certificate -P /downloads
-RUN chmod +x /downloads/install-tr-control.sh
-RUN sh /downloads/install-tr-control.sh
+RUN wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control.sh --no-check-certificate -P /downloads && chmod +x /downloads/install-tr-control.sh && sh /downloads/install-tr-control.sh
 
 
 HEALTHCHECK --interval=5s --timeout=3s --retries=3 \
