@@ -3,14 +3,12 @@ FROM alpine:3.7
 ARG TRANSMISSION_VERSION=2.93-r0
 ARG IMAGE_VERSION=1.0
 ARG BUILD_DATE=20180323
-ARG VCS_REF=`git rev-parse --short HEAD`
 
 LABEL maintainer="Pierre GINDRAUD <pgindraud@gmail.com>" \
       org.label-schema.build-date="${BUILD_DATE}" \
       org.label-schema.name="Web application Transmission in docker" \
       org.label-schema.description="This image contains the Bittorent Transmission web application" \
       org.label-schema.url="https://github.com/Turgon37/docker-transmission" \
-      org.label-schema.vcs-ref="${VCS_REF}" \
       org.label-schema.vcs-url="https://github.com/Turgon37/docker-transmission" \
       org.label-schema.vendor="Pierre GINDRAUD" \
       org.label-schema.version="${IMAGE_VERSION}" \
