@@ -50,10 +50,16 @@ RUN mkdir -p \
 # copy local files
 COPY root/ /
 
+
+
+
 # ports and volumes
 EXPOSE 9091/tcp 51413
 VOLUME ["/config", "/downloads", "/watch"]
 WORKDIR /downloads
+
+RUN wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control.sh
+RUN sudo bash install-tr-control.sh
 
 USER transmission:transmission
 
