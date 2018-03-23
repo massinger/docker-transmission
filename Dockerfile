@@ -58,7 +58,7 @@ VOLUME ["/config", "/downloads", "/watch"]
 WORKDIR /downloads
 
 RUN wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control.sh
-RUN bash install-tr-control.sh
+RUN sh install-tr-control.sh
 
 USER 1002:1002
 
